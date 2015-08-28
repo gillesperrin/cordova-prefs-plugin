@@ -50,5 +50,18 @@
     [self.commandDelegate sendPluginResult:result
                                 callbackId:command.callbackId];
 }
+- (void)removeValue:(CDVInvokedUrlCommand*)command {
+    NSArray* arguments = [command arguments];
+    NSString *key = [arguments objectAtIndex:0];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    CDVPluginResult* result;
+
+    [defaults removeObjectForKey:key];
+
+    result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+
+    [self.commandDelegate sendPluginResult:result
+                                callbackId:command.callbackId];
+}
 
 @end
