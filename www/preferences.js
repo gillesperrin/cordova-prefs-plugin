@@ -14,5 +14,3 @@ Preferences.get = function(key, success, error) {
 Preferences.remove = function(key, success, error) {
     exec(success, error, "Preferences", "removeValue", [key]);
 };
-
-});
